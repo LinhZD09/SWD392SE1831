@@ -1,0 +1,41 @@
+# Ignore build output directories
+/build/
+/dist/
+/out/
+/target/
+
+# Ignore compiled Java classes
+*.class
+
+# Ignore Ant build files
+*.log
+*.tmp
+*.bak
+*.cache
+*.db
+
+# Ignore IDE-specific files
+/.classpath
+/.project
+/.settings/
+/.idea/
+/*.iml
+
+# Ignore NetBeans project files
+/nbproject/private/
+/build.xml~
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Ignore dependency libraries if managed externally
+/lib/*.jar
+
+# Ignore temporary and system files
+*.swp
+*.swo
+*.DS_Store
+Thumbs.db
+/WEB-INF/*
+!/WEB-INF/web.xml
