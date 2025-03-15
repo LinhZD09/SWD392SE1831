@@ -37,3 +37,5 @@
 *.swo
 *.DS_Store
 Thumbs.db
+# Ignore JAR files in the lib directory
+/lib/*.jar
