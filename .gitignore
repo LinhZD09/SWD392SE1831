@@ -29,9 +29,6 @@
 /nbdist/
 /.nb-gradle/
 
-# Ignore dependency libraries if managed externally
-/lib/*.jar
-
 # Ignore temporary and system files
 *.swp
 *.swo
