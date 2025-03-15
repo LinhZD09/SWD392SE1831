@@ -1,13 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Dal;
-
-/**
- *
- * @author MSI
- */
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +7,7 @@ import java.sql.SQLException;
 public class ConnectDB {
     private static final String URL = "jdbc:sqlserver://localhost:1433;databaseName=SWD392Project";
     private static final String USER = "sa"; // Thay bằng username của bạn
-    private static final String PASSWORD = "123"; // Thay bằng mật khẩu của bạn
+    private static final String PASSWORD = "1234"; // Thay bằng mật khẩu của bạn
 
     public static Connection getConnection() {
         Connection conn = null;

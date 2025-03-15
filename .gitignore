@@ -37,3 +37,5 @@
 *.swo
 *.DS_Store
 Thumbs.db
+/SWD392Project/build/
+/SWD392Project/dist/
