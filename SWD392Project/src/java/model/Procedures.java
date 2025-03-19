@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.security.Timestamp;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -17,7 +18,7 @@ public class Procedures {
     private String title;
     private String description;
     private int categoryId;
-    private LocalDateTime createdDate;
+    private Date createdDate;
     private Date updateDate;
     private String status;
     private int processingTime;
@@ -30,7 +31,7 @@ public class Procedures {
     public Procedures() {
     }
 
-    public Procedures(int procedureId, String title, String description, int categoryId, LocalDateTime createdDate, Date updateDate, String status, int processingTime, double fee, String paymentRequired, String submissionMethod, String approvalAuthority, Category category) {
+    public Procedures(int procedureId, String title, String description, int categoryId, Date createdDate, Date updateDate, String status, int processingTime, double fee, String paymentRequired, String submissionMethod, String approvalAuthority, Category category) {
         this.procedureId = procedureId;
         this.title = title;
         this.description = description;
@@ -78,11 +79,11 @@ public class Procedures {
         this.categoryId = categoryId;
     }
 
-    public LocalDateTime getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDateTime createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 
@@ -150,8 +151,4 @@ public class Procedures {
         this.category = category;
     }
 
-    @Override
-    public String toString() {
-        return "Procedures{" + "procedureId=" + procedureId + ", title=" + title + ", description=" + description + ", categoryId=" + categoryId + ", createdDate=" + createdDate + ", updateDate=" + updateDate + ", status=" + status + ", processingTime=" + processingTime + ", fee=" + fee + ", paymentRequired=" + paymentRequired + ", submissionMethod=" + submissionMethod + ", approvalAuthority=" + approvalAuthority + ", category=" + category + '}';
-    } 
 }

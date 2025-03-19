@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/service/ProcedureSubmissionService.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/RejectSubmissionServlet.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/web/procedureSubmission.jsp</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/web/Webapp/Css/style.css</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/GetSubmissionServlet.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/ApproveSubmissionServlet.java</file>
+        </group>
     </open-files>
 </project-private>

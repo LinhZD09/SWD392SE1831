@@ -4,7 +4,8 @@
  */
 package model;
 
-import java.time.LocalDateTime;
+
+import java.util.Date;
 
 /**
  *
@@ -17,12 +18,12 @@ public class ProceduresHistory {
     private String action;
     private String description;
     private String detail;
-    private LocalDateTime dateAccept;
+    private Date dateAccept;
     private String status;
 
     public ProceduresHistory() {}
 
-    public ProceduresHistory(int procedureHistoryId, int customerId, int accountId, String action, String description, String detail, LocalDateTime dateAccept, String status) {
+    public ProceduresHistory(int procedureHistoryId, int customerId, int accountId, String action, String description, String detail, Date dateAccept, String status) {
         this.procedureHistoryId = procedureHistoryId;
         this.customerId = customerId;
         this.accountId = accountId;
@@ -81,11 +82,11 @@ public class ProceduresHistory {
         this.detail = detail;
     }
 
-    public LocalDateTime getDateAccept() {
+    public Date getDateAccept() {
         return dateAccept;
     }
 
-    public void setDateAccept(LocalDateTime dateAccept) {
+    public void setDateAccept(Date dateAccept) {
         this.dateAccept = dateAccept;
     }
 

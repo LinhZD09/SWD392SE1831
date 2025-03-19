@@ -8,17 +8,17 @@ CREATE TABLE Category (
 
 CREATE TABLE Procedures (
     procedureId INT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    description TEXT,
+    title NVARCHAR(255) NOT NULL,
+    description NVARCHAR(255),
     categoryId INT,
     createdDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     updateDate DATETIME,
     status VARCHAR(50),
     processingTime INT,
     fee DECIMAL(10,2),
-    paymentRequired TEXT,
-    submissionMethod VARCHAR(255),
-    approvalAuthority VARCHAR(255),
+    paymentRequired NVARCHAR(255),
+    submissionMethod NVARCHAR(255),
+    approvalAuthority NVARCHAR(255),
     FOREIGN KEY (categoryId) REFERENCES Category(categoryId) ON DELETE SET NULL
 );
 
@@ -188,8 +188,8 @@ CREATE TABLE ProcedureSubmission (
     submissionId INT PRIMARY KEY,
     customerId INT,
     templateId INT,
-    title VARCHAR(255),
-    description TEXT,
+    title NVARCHAR(255),
+    description NVARCHAR(500),
     submissionDate DATETIME DEFAULT CURRENT_TIMESTAMP,
     status VARCHAR(50),
     adminProcedureId INT,
@@ -224,28 +224,58 @@ CREATE TABLE Content (
 );
 
 INSERT INTO Category (categoryId, name) VALUES
-(1, 'Hành chính công'),
-(2, 'Tài chính ngân hàng'),
-(3, 'Giáo dục'),
-(4, 'Y tế'),
-(5, 'Giao thông');
+(1, N'Hành chính công'),
+(2, N'Tài chính ngân hàng'),
+(3, N'Giáo dục'),
+(4, N'Y tế'),
+(5, N'Giao thông'),
+(6, N'Xây dựng'),
+(7, N'Môi trường'),
+(8, N'Nông nghiệp'),
+(9, N'Văn hóa - Thể thao'),
+(10, N'Công nghệ thông tin');
 
 INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(1, 'Đăng ký giấy khai sinh', 'Thủ tục đăng ký giấy khai sinh cho trẻ em', 1, 'Active', 7, 0.00, 'Không', 'Trực tiếp', 'UBND Xã/Phường'),
-(2, 'Gia hạn thẻ BHYT', 'Gia hạn bảo hiểm y tế cho người dân', 4, 'Active', 5, 300000.00, 'Có', 'Online', 'Bảo hiểm xã hội'),
-(3, 'Cấp giấy phép lái xe', 'Thủ tục cấp giấy phép lái xe hạng B1', 5, 'Pending', 10, 135000.00, 'Có', 'Trực tiếp', 'Sở Giao thông vận tải');
+(1, N'Đăng ký giấy khai sinh', N'Thủ tục đăng ký giấy khai sinh cho trẻ em', 1, 'Pending', 7, 0.00, N'Không', N'Trực tiếp', N'UBND Xã/Phường');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(2, N'Gia hạn thẻ BHYT', N'Gia hạn bảo hiểm y tế cho người dân', 4, 'Pending', 5, 300000.00, N'Có', 'Online', N'Bảo hiểm xã hội');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(3, N'Cấp giấy phép lái xe', N'Thủ tục cấp giấy phép lái xe hạng B1', 5, 'Pending', 10, 135000.00, N'Có', N'Trực tiếp', N'Sở Giao thông vận tải');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(4, N'Cấp hộ chiếu', N'Thủ tục cấp hộ chiếu cho công dân Việt Nam', 1, 'Pending', 10, 200000.00, N'Có', N'Trực tiếp', N'Cục Xuất Nhập Cảnh');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(5, N'Đăng ký kinh doanh', N'Đăng ký kinh doanh cho doanh nghiệp vừa và nhỏ', 6, 'Pending', 15, 500000.00, N'Có', 'Online', N'Sở Kế hoạch Đầu tư');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(6, N'Cấp giấy chứng nhận quyền sử dụng đất', N'Thủ tục cấp sổ đỏ', 6, 'Pending', 20, 800000.00, N'Có', N'Trực tiếp', N'Sở Tài nguyên Môi trường');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(7, N'Cấp giấy phép xây dựng', N'Thủ tục xin cấp phép xây dựng nhà ở', 6, 'Pending', 10, 300000.00, N'Có', 'Online', N'Sở Xây dựng');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(8, N'Xin giấy phép môi trường', N'Thủ tục xin cấp phép xử lý môi trường', 7, 'Pending', 15, 100000.00, N'Có', 'Online', N'Sở Môi trường');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(9, N'Đăng ký bảo hộ thương hiệu', N'Thủ tục bảo hộ nhãn hiệu, thương hiệu', 10, 'Pending', 30, 1000000.00, N'Có', N'Trực tiếp', N'Cục Sở hữu trí tuệ');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
+(10, N'Xin visa du lịch', N'Thủ tục xin cấp visa đi du lịch nước ngoài', 1, 'Pending', 7, 500000.00, N'Có', 'Online', N'Đại sứ quán');
+
 
 
 INSERT INTO News (newsId, title, description) VALUES
-(1, 'Cập nhật quy trình cấp CMND mới', 'Quy trình cấp CMND được cải tiến để nhanh chóng hơn.'),
-(2, 'Gia hạn BHYT 2025', 'Thông tin quan trọng về gia hạn bảo hiểm y tế cho năm 2025.');
+(1, N'Cập nhật quy trình cấp CMND mới', N'Quy trình cấp CMND được cải tiến để nhanh chóng hơn.'),
+(2, N'Gia hạn BHYT 2025', N'Thông tin quan trọng về gia hạn bảo hiểm y tế cho năm 2025.'),
+(3, N'Thay đổi luật thuế 2025', 'Những điều chỉnh mới trong luật thuế có hiệu lực từ 2025.'),
+(4, N'Cấp phép xây dựng online', 'Cách xin giấy phép xây dựng trực tuyến nhanh chóng.'),
+(5, N'Thông tin mới về sổ đỏ', 'Hướng dẫn chi tiết thủ tục cấp giấy chứng nhận quyền sử dụng đất.'),
+(6, N'Triển khai BHXH điện tử', 'Người lao động có thể nộp BHXH qua cổng thông tin điện tử.'),
+(7, N'Ứng dụng công nghệ vào giáo dục', 'Các công nghệ mới đang thay đổi nền giáo dục.'),
+(8, N'Cập nhật chính sách môi trường', 'Các doanh nghiệp cần lưu ý về chính sách môi trường mới.'),
+(9, N'Thủ tục nhập khẩu hàng hóa', 'Những quy định mới về nhập khẩu trong năm 2025.'),
+(10, N'Hướng dẫn đăng ký thương hiệu', 'Các bước để đăng ký bảo hộ nhãn hiệu hiệu quả.');
 
 
 INSERT INTO Users (userId, fullName, address, dob, gender, role) VALUES
-(1, 'Nguyen Dinh Linh', N'Hà Nội', '2003-06-19', 'Nam', 'Admin'),
-(2, 'Tran Van Thao', N'TP.Hải Phòng', '2003-07-15', 'Nam', 'Customer'),
-(3, 'Phạm Văn C', N'Đà Nẵng', '1988-09-30', 'Nam', 'Staff');
-
+(1, 'Admin', N'Hà Nội', '2003-06-19', 'Nam', 'Admin'),
+(2, 'Customer', N'TP.Hải Phòng', '2003-07-15', 'Nam', 'Customer'),
+(3, 'Information', N'Đà Nẵng', '1988-09-30', 'Nam', 'Information'),
+(4, 'Procedure', N'Cần Thơ', '1988-09-30', 'Nam', 'Procedure');
 
 INSERT INTO Customer (userId, membershipLevel) VALUES
 (2, 'VIP');
@@ -254,9 +284,10 @@ INSERT INTO Staff (userId, position, status, department, startDate) VALUES
 (3, N'Nhân viên hành chính', 'Active', N'Hành chính công', '2015-03-01');
 
 INSERT INTO Account (accountId, userId, username, password, email, phoneNumber, status) VALUES
-(1, 1, 'adminA', 'password123', 'adminA@example.com', '0987654321', 'Active'),
-(2, 2, 'customerB', 'password456', 'customerB@example.com', '0912345678', 'Active'),
-(3, 3, 'staffC', 'password789', 'staffC@example.com', '0932123456', 'Active');
+(1, 1, 'Admin', '1234', 'admin@example.com', '0987654321', 'Active'),
+(2, 2, 'Customer', '1234', 'customerB@example.com', '0912345678', 'Active'),
+(3, 3, 'Information', '1234', 'Information@example.com', '0932123456', 'Active'),
+(4, 4, 'Procedure', '1234', 'Procedure@example.com', '0932123456', 'Active');
 
 INSERT INTO AdministratorProcedure (adminProcedureId, procedureCount, lastUpdated) VALUES
 (1, 10, '2025-01-01');
@@ -282,10 +313,79 @@ INSERT INTO ProcedureTemplate (templateId, title, description, status, adminId) 
 
 
 INSERT INTO ProcedureSubmission (submissionId, customerId, templateId, title, description, status, adminProcedureId) VALUES
-(1, 2, 1, N'Nộp đơn khai sinh', N'Khách hàng nộp đơn khai sinh trực tuyến', 'Pending', 1);
+(1, 2, 1, N'Nộp đơn khai sinh', N'Khách hàng nộp đơn khai sinh trực tuyến', 'Pending', 1),
+(2, 2, 1, N'Xin cấp hộ chiếu', 
+   N'Nộp hồ sơ xin cấp hộ chiếu mới cho công dân có nhu cầu đi du lịch, công tác hoặc học tập ở nước ngoài. Hồ sơ bao gồm CMND/CCCD, ảnh chân dung 4x6, đơn xin cấp hộ chiếu theo mẫu và giấy xác nhận địa phương.', 
+    'Pending', 1),
+(3, 2, 1, N'Gia hạn BHYT', 
+    N'Nộp hồ sơ gia hạn bảo hiểm y tế cho người dân thuộc diện bắt buộc tham gia BHYT theo quy định. Hồ sơ bao gồm thẻ BHYT cũ, giấy tờ tùy thân và biên lai đóng tiền gia hạn.', 
+    'Approved', 1),
+(4, 2, 1, N'Đăng ký kinh doanh', 
+    N'Nộp hồ sơ đăng ký kinh doanh cho cá nhân hoặc tổ chức muốn thành lập doanh nghiệp. Hồ sơ bao gồm giấy đề nghị đăng ký kinh doanh, bản sao CMND/CCCD của chủ doanh nghiệp và điều lệ công ty.', 
+    'Rejected', 1),
+(5, 2, 1, N'Cấp giấy phép lái xe', 
+    N'Nộp hồ sơ xin cấp giấy phép lái xe hạng B2 dành cho công dân đủ 18 tuổi trở lên. Hồ sơ gồm đơn đề nghị cấp GPLX, CMND/CCCD, giấy khám sức khỏe, ảnh chân dung 3x4 và giấy xác nhận đã hoàn thành khóa đào tạo lái xe.', 
+    'Pending', 1),
+(6, 2, 1, N'Cấp giấy chứng nhận quyền sử dụng đất', 
+    N'Nộp hồ sơ xin cấp sổ đỏ cho cá nhân, hộ gia đình có nhu cầu sở hữu hợp pháp quyền sử dụng đất. Hồ sơ bao gồm đơn đề nghị cấp GCNQSDĐ, giấy tờ chứng minh nguồn gốc đất, CMND/CCCD của chủ hộ và các tài liệu liên quan.', 
+    'Approved', 1),
+(7, 2, 1, N'Xin visa du lịch', 
+    N'Nộp hồ sơ xin cấp visa du lịch nước ngoài dành cho công dân có kế hoạch tham quan, du lịch quốc tế. Hồ sơ bao gồm hộ chiếu hợp lệ, ảnh chân dung 4x6, đơn xin visa, lịch trình du lịch và chứng minh tài chính.', 
+    'Pending', 1),
+(8, 2, 1, N'Đăng ký bảo hộ thương hiệu', 
+    N'Nộp hồ sơ đăng ký bảo hộ thương hiệu nhằm bảo vệ quyền sở hữu trí tuệ của doanh nghiệp. Hồ sơ bao gồm đơn đăng ký nhãn hiệu, mẫu logo/thương hiệu, mô tả sản phẩm/dịch vụ và giấy tờ pháp lý liên quan.', 
+    'Rejected', 1),
+(9, 2, 1, N'Cấp giấy phép xây dựng', 
+    N'Nộp hồ sơ xin cấp phép xây dựng nhà ở, công trình dân dụng. Hồ sơ bao gồm bản vẽ thiết kế xây dựng, giấy chứng nhận quyền sử dụng đất, đơn đề nghị cấp phép và các tài liệu liên quan.', 
+    'Approved', 1),
+(10, 2, 1, N'Xin giấy phép môi trường', 
+    N'Nộp hồ sơ xin cấp giấy phép xử lý chất thải, đánh giá tác động môi trường đối với doanh nghiệp hoạt động trong lĩnh vực sản xuất, xây dựng, khai thác tài nguyên thiên nhiên.', 
+    'Pending', 1),
+(11, 2, 1, N'Thanh toán phí dịch vụ hành chính', 
+    N'Nộp hồ sơ xác nhận thanh toán phí hành chính đối với các dịch vụ công trực tuyến. Hồ sơ bao gồm biên lai thanh toán, thông tin cá nhân và mã giao dịch ngân hàng.', 
+    'Approved', 1);
 
 INSERT INTO BankingHistory (bankingHistoryId, customerId, accountId, action, description, amount) VALUES
 (1, 2, 2, N'Thanh toán phí BHYT', N'Khách hàng thanh toán phí bảo hiểm y tế', 300000);
 
 INSERT INTO Content (contentId, title, description, status, adminId) VALUES
 (1, N'Hướng dẫn làm CMND mới', N'Chi tiết các bước thực hiện cấp CMND mới', 'Published', 3);
+
+ALTER TABLE ProcedureTemplate
+ALTER COLUMN data NVARCHAR(MAX);
+
+DELETE FROM ProcedureTemplate;
+-- Cập nhật dữ liệu JSON với hai template
+UPDATE ProcedureTemplate
+SET data = N'{
+  "formTitle": "Đăng ký tạm trú",
+  "fields": [
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Nguyễn Văn A" },
+    { "label": "Ngày sinh", "name": "dob", "type": "date", "required": true, "content": "2000-01-01" },
+    { "label": "Địa chỉ tạm trú", "name": "temporaryAddress", "type": "text", "required": true, "content": "123 Đường ABC, Quận 1, TP.HCM" }
+  ]
+}'
+WHERE templateId = 1;
+
+UPDATE ProcedureTemplate
+SET data = N'{
+  "formTitle": "Đăng ký hộ khẩu",
+  "fields": [
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Trần Thị B" },
+    { "label": "Địa chỉ thường trú", "name": "permanentAddress", "type": "text", "required": true, "content": "456 Đường XYZ, Quận 3, TP.HCM" },
+    { "label": "Số nhân khẩu", "name": "householdMembers", "type": "number", "required": true, "content": "4" }
+  ]
+}'
+WHERE templateId = 2;
+
+-- Xóa dữ liệu cũ trước khi thêm dữ liệu mới
+DELETE FROM ProcedureSubmission;
+
+-- Thêm 5 submission với templateId chính xác
+INSERT INTO ProcedureSubmission (submissionId, customerId, templateId, title, description, submissionDate, status, adminProcedureId) VALUES
+(1, 2, 1, N'Đăng ký tạm trú tại Hà Nội', N'Nộp đơn đăng ký tạm trú', '2025-03-10 08:00:00', 'Pending', 1),
+(2, 2, 2, N'Đăng ký hộ khẩu tại TP.HCM', N'Nộp đơn đăng ký hộ khẩu', '2025-03-11 09:00:00', 'Pending', 1),
+(3, 2, 1, N'Đăng ký tạm trú Đà Nẵng', N'Nộp đơn đăng ký tạm trú', '2025-03-12 10:00:00', 'Pending', 1),
+(4, 2, 2, N'Đăng ký hộ khẩu Hải Phòng', N'Nộp đơn đăng ký hộ khẩu', '2025-03-13 11:00:00', 'Pending', 1),
+(5, 2, 1, N'Đăng ký tạm trú Cần Thơ', N'Nộp đơn đăng ký tạm trú', '2025-03-14 12:00:00', 'Pending', 1);
+

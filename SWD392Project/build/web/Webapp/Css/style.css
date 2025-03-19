@@ -1,0 +1,214 @@
+body {
+    font-family: 'Roboto', Arial, sans-serif; /* Modern font for professionalism */
+    background-color: #f5f7fa; /* Light gray background for a clean look */
+    margin: 0;
+    padding: 0;
+    color: #333; /* Darker text for readability */
+}
+
+.container {
+    width: 70%; /* Slightly wider for a balanced look */
+    max-width: 900px; /* Prevent it from becoming too wide */
+    margin: 40px auto;
+    background: #ffffff; /* White background for the main container */
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    border-radius: 8px; /* Slightly larger border radius for elegance */
+}
+
+h1 {
+    text-align: center;
+    color: #1a73e8; /* Professional blue for the title */
+    font-size: 28px;
+    font-weight: 500; /* Medium weight for a modern look */
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0; /* Subtle underline */
+    padding-bottom: 10px;
+}
+
+.submission-card {
+    padding: 25px;
+    background: #f9fbfd; /* Very light blue-gray for the card background */
+    border-radius: 6px;
+    border: 1px solid #e0e0e0; /* Light border for definition */
+}
+
+.submission-card h2 {
+    color: #1a73e8; /* Matching blue for the submission title */
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.submission-card h3 {
+    font-size: 18px;
+    color: #444; /* Slightly lighter than body text for hierarchy */
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.submission-card p {
+    font-size: 16px;
+    margin: 8px 0;
+    line-height: 1.5; /* Better readability */
+}
+
+.submission-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between each field */
+}
+
+.submission-details p {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.submission-details p strong {
+    font-weight: 500;
+    color: #333;
+    font-size: 15px;
+}
+
+.submission-details p span {
+    padding: 12px;
+    border: 1px solid #e0e0e0; /* Light border for the frame */
+    border-radius: 6px;
+    background: #ffffff; /* White background for the content */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Very subtle shadow */
+    font-size: 15px;
+    color: #444;
+    display: inline-block;
+    transition: all 0.2s ease; /* Smooth hover effect */
+}
+
+.submission-details p span:hover {
+    border-color: #1a73e8; /* Blue border on hover for interactivity */
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.15); /* Slight blue shadow on hover */
+}
+
+.error {
+    color: #d32f2f; /* Professional red for errors */
+    font-weight: 500;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.pending {
+    color: #f57c00; /* Orange for pending status */
+    font-weight: 500;
+}
+
+.approved {
+    color: #2e7d32; /* Green for approved status */
+    font-weight: 500;
+}
+
+.rejected {
+    color: #d32f2f; /* Red for rejected status */
+    font-weight: 500;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    min-width: 120px;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.approve {
+    background-color: #2e7d32; /* Professional green */
+    color: white;
+}
+
+.approve:hover {
+    background-color: #388e3c; /* Slightly lighter green on hover */
+    box-shadow: 0 2px 8px rgba(46, 125, 50, 0.2);
+}
+
+.reject {
+    background-color: #d32f2f; /* Professional red */
+    color: white;
+}
+
+.reject:hover {
+    background-color: #e53935; /* Slightly lighter red on hover */
+    box-shadow: 0 2px 8px rgba(211, 47, 47, 0.2);
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the popup both horizontally and vertically */
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.popup-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the popup content */
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 350px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.popup-content h3 {
+    font-size: 18px;
+    color: #333;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.popup-content p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.popup-content button {
+    margin: 0 8px;
+}
+
+.confirm {
+    background-color: #1a73e8; /* Professional blue for confirm */
+    color: white;
+}
+
+.confirm:hover {
+    background-color: #2a81ea; /* Slightly lighter blue on hover */
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.2);
+}
+
+.popup-content button:not(.confirm) {
+    background-color: #e0e0e0; /* Gray for cancel button */
+    color: #333;
+}
+
+.popup-content button:not(.confirm):hover {
+    background-color: #d5d5d5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}

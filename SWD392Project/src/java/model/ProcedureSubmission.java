@@ -4,7 +4,8 @@
  */
 package model;
 
-import java.time.LocalDateTime;
+
+import java.util.Date;
 
 /**
  *
@@ -16,13 +17,13 @@ public class ProcedureSubmission {
     private int templateId;
     private String title;
     private String description;
-    private LocalDateTime submissionDate;
+    private Date submissionDate;
     private String status;
     private int adminProcedureId;
+    private String templateData; // Thêm thuộc tính này
 
-    public ProcedureSubmission() {}
 
-    public ProcedureSubmission(int submissionId, int customerId, int templateId, String title, String description, LocalDateTime submissionDate, String status, int adminProcedureId) {
+    public ProcedureSubmission(int submissionId, int customerId, int templateId, String title, String description, Date submissionDate,String status, String templateData) {
         this.submissionId = submissionId;
         this.customerId = customerId;
         this.templateId = templateId;
@@ -30,8 +31,11 @@ public class ProcedureSubmission {
         this.description = description;
         this.submissionDate = submissionDate;
         this.status = status;
-        this.adminProcedureId = adminProcedureId;
+        this.templateData = templateData;
     }
+
+
+    
 
     public int getSubmissionId() {
         return submissionId;
@@ -73,11 +77,11 @@ public class ProcedureSubmission {
         this.description = description;
     }
 
-    public LocalDateTime getSubmissionDate() {
+    public Date getSubmissionDate() {
         return submissionDate;
     }
 
-    public void setSubmissionDate(LocalDateTime submissionDate) {
+    public void setSubmissionDate(Date submissionDate) {
         this.submissionDate = submissionDate;
     }
 
@@ -95,5 +99,13 @@ public class ProcedureSubmission {
 
     public void setAdminProcedureId(int adminProcedureId) {
         this.adminProcedureId = adminProcedureId;
+    }
+
+    public String getTemplateData() {
+        return templateData;
+    }
+
+    public void setTemplateData(String templateData) {
+        this.templateData = templateData;
     }
 }
