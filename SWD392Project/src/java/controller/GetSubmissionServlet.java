@@ -16,6 +16,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.ProcedureSubmission;
 import service.ProcedureSubmissionService;
 
@@ -62,17 +65,16 @@ public class GetSubmissionServlet extends HttpServlet {
     private final ProcedureSubmissionService dao = new ProcedureSubmissionService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("application/json;charset=UTF-8");
-        
-        ProcedureSubmission submission = dao.getEarliestSubmission();
-        
-        if (submission == null) {
-            request.setAttribute("error", "Không tìm thấy hồ sơ nào");
-        } else {
-            request.setAttribute("submission", submission);
+        ProcedureSubmission submission = null;
+        try {
+            submission = dao.getEarliestSubmission();
+        } catch (SQLException ex) {
+            Logger.getLogger(GetSubmissionServlet.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(GetSubmissionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        request.getRequestDispatcher("procedureSubmission.jsp").forward(request, response);
+        request.setAttribute("submission", submission);
+        request.getRequestDispatcher("/procedureSubmission.jsp").forward(request, response);
     }
  
 

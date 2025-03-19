@@ -77,7 +77,8 @@ public class ApproveSubmissionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int submissionId = Integer.parseInt(request.getParameter("submissionId"));
-        boolean success = dao.updateStatus(submissionId, "Approved");
+        boolean success = false;
+        success = dao.updateStatus(submissionId, "Approved");
 
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(new Gson().toJson(success ? "Success" : "Failure"));

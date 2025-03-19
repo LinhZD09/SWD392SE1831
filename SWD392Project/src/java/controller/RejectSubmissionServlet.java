@@ -12,6 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,7 +79,8 @@ public class RejectSubmissionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int submissionId = Integer.parseInt(request.getParameter("submissionId"));
-        boolean success = dao.updateStatus(submissionId, "Rejected");
+        boolean success = false;
+        success = dao.updateStatus(submissionId, "Rejected");
 
         response.setContentType("application/json;charset=UTF-8");
         response.getWriter().write(new Gson().toJson(success ? "Success" : "Failure"));
