@@ -11,15 +11,9 @@ import java.sql.SQLException;
 public class ProcedureSubmissionService {
 
     public ProcedureSubmission getEarliestSubmission() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT TOP 1 ps.*, pt.data AS templateData "
-                + "FROM ProcedureSubmission ps "
-                + "JOIN AdministratorProcedure ap ON ap.adminProcedureId = ps.adminProcedureId "
-                + "JOIN ProcedureTemplate pt ON pt.adminId = ap.adminProcedureId "
-                + "WHERE ps.status = 'Pending' ORDER BY ps.submissionDate ASC";
+        String sql = "SELECT TOP 1 * FROM ProcedureSubmission WHERE status = 'Pending' ORDER BY submissionDate ASC";
 
-        try (Connection conn = ConnectDB.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql);
-             ResultSet rs = stmt.executeQuery()) {
+        try (Connection conn = ConnectDB.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
             if (rs.next()) {
                 return new ProcedureSubmission(
                         rs.getInt("submissionId"),
@@ -28,8 +22,7 @@ public class ProcedureSubmissionService {
                         rs.getString("title"),
                         rs.getString("description"),
                         rs.getTimestamp("submissionDate"),
-                        rs.getString("status"),
-                        rs.getString("templateData")
+                        rs.getString("status")
                 );
             }
         } catch (SQLException e) {
@@ -38,14 +31,21 @@ public class ProcedureSubmissionService {
         return null;
     }
 
-    
-
-    public boolean updateStatus(int submissionId, String status) {
-        String sql = "UPDATE ProcedureSubmission SET status = ? WHERE submissionId = ?";
+    public boolean updateStatus(String status,int submissionId) {
+ 
+        String sql = "UPDATE [dbo].[ProcedureSubmission]\n"
+                + "   SET \n"
+                + "      [status] = ?\n"
+                + "      \n"
+                + " WHERE submissionId = ?";
         try (Connection conn = ConnectDB.getConnection(); PreparedStatement stmt = conn.prepareStatement(sql)) {
+
             stmt.setString(1, status);
             stmt.setInt(2, submissionId);
-            stmt.executeUpdate();
+            int rowsAffected = stmt.executeUpdate();
+
+            return rowsAffected > 0; // Trả về true nếu có dòng được cập nhật
+
         } catch (Exception e) {
             e.printStackTrace();
         }

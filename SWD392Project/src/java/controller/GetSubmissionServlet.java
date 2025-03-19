@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -63,8 +64,9 @@ public class GetSubmissionServlet extends HttpServlet {
      */
 
     private final ProcedureSubmissionService dao = new ProcedureSubmissionService();
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
         ProcedureSubmission submission = null;
         try {
             submission = dao.getEarliestSubmission();
@@ -73,8 +75,21 @@ public class GetSubmissionServlet extends HttpServlet {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(GetSubmissionServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        request.setAttribute("submission", submission);
-        request.getRequestDispatcher("/procedureSubmission.jsp").forward(request, response);
+
+        if (submission == null) {
+            request.setAttribute("error", "Không còn hồ sơ nào để duyệt.");
+        } else {
+            request.setAttribute("submission", submission);
+        }
+
+        // Lấy message từ URL nếu có
+        String message = request.getParameter("message");
+        if (message != null) {
+            request.setAttribute("message", message);
+        }
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("procedureSubmission.jsp");
+        dispatcher.forward(request, response);
     }
  
 

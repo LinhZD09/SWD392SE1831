@@ -312,39 +312,6 @@ INSERT INTO ProcedureTemplate (templateId, title, description, status, adminId) 
 (1, N'Mẫu khai sinh', N'Mẫu giấy khai sinh dành cho trẻ em', 'Active', 1);
 
 
-INSERT INTO ProcedureSubmission (submissionId, customerId, templateId, title, description, status, adminProcedureId) VALUES
-(1, 2, 1, N'Nộp đơn khai sinh', N'Khách hàng nộp đơn khai sinh trực tuyến', 'Pending', 1),
-(2, 2, 1, N'Xin cấp hộ chiếu', 
-   N'Nộp hồ sơ xin cấp hộ chiếu mới cho công dân có nhu cầu đi du lịch, công tác hoặc học tập ở nước ngoài. Hồ sơ bao gồm CMND/CCCD, ảnh chân dung 4x6, đơn xin cấp hộ chiếu theo mẫu và giấy xác nhận địa phương.', 
-    'Pending', 1),
-(3, 2, 1, N'Gia hạn BHYT', 
-    N'Nộp hồ sơ gia hạn bảo hiểm y tế cho người dân thuộc diện bắt buộc tham gia BHYT theo quy định. Hồ sơ bao gồm thẻ BHYT cũ, giấy tờ tùy thân và biên lai đóng tiền gia hạn.', 
-    'Approved', 1),
-(4, 2, 1, N'Đăng ký kinh doanh', 
-    N'Nộp hồ sơ đăng ký kinh doanh cho cá nhân hoặc tổ chức muốn thành lập doanh nghiệp. Hồ sơ bao gồm giấy đề nghị đăng ký kinh doanh, bản sao CMND/CCCD của chủ doanh nghiệp và điều lệ công ty.', 
-    'Rejected', 1),
-(5, 2, 1, N'Cấp giấy phép lái xe', 
-    N'Nộp hồ sơ xin cấp giấy phép lái xe hạng B2 dành cho công dân đủ 18 tuổi trở lên. Hồ sơ gồm đơn đề nghị cấp GPLX, CMND/CCCD, giấy khám sức khỏe, ảnh chân dung 3x4 và giấy xác nhận đã hoàn thành khóa đào tạo lái xe.', 
-    'Pending', 1),
-(6, 2, 1, N'Cấp giấy chứng nhận quyền sử dụng đất', 
-    N'Nộp hồ sơ xin cấp sổ đỏ cho cá nhân, hộ gia đình có nhu cầu sở hữu hợp pháp quyền sử dụng đất. Hồ sơ bao gồm đơn đề nghị cấp GCNQSDĐ, giấy tờ chứng minh nguồn gốc đất, CMND/CCCD của chủ hộ và các tài liệu liên quan.', 
-    'Approved', 1),
-(7, 2, 1, N'Xin visa du lịch', 
-    N'Nộp hồ sơ xin cấp visa du lịch nước ngoài dành cho công dân có kế hoạch tham quan, du lịch quốc tế. Hồ sơ bao gồm hộ chiếu hợp lệ, ảnh chân dung 4x6, đơn xin visa, lịch trình du lịch và chứng minh tài chính.', 
-    'Pending', 1),
-(8, 2, 1, N'Đăng ký bảo hộ thương hiệu', 
-    N'Nộp hồ sơ đăng ký bảo hộ thương hiệu nhằm bảo vệ quyền sở hữu trí tuệ của doanh nghiệp. Hồ sơ bao gồm đơn đăng ký nhãn hiệu, mẫu logo/thương hiệu, mô tả sản phẩm/dịch vụ và giấy tờ pháp lý liên quan.', 
-    'Rejected', 1),
-(9, 2, 1, N'Cấp giấy phép xây dựng', 
-    N'Nộp hồ sơ xin cấp phép xây dựng nhà ở, công trình dân dụng. Hồ sơ bao gồm bản vẽ thiết kế xây dựng, giấy chứng nhận quyền sử dụng đất, đơn đề nghị cấp phép và các tài liệu liên quan.', 
-    'Approved', 1),
-(10, 2, 1, N'Xin giấy phép môi trường', 
-    N'Nộp hồ sơ xin cấp giấy phép xử lý chất thải, đánh giá tác động môi trường đối với doanh nghiệp hoạt động trong lĩnh vực sản xuất, xây dựng, khai thác tài nguyên thiên nhiên.', 
-    'Pending', 1),
-(11, 2, 1, N'Thanh toán phí dịch vụ hành chính', 
-    N'Nộp hồ sơ xác nhận thanh toán phí hành chính đối với các dịch vụ công trực tuyến. Hồ sơ bao gồm biên lai thanh toán, thông tin cá nhân và mã giao dịch ngân hàng.', 
-    'Approved', 1);
-
 INSERT INTO BankingHistory (bankingHistoryId, customerId, accountId, action, description, amount) VALUES
 (1, 2, 2, N'Thanh toán phí BHYT', N'Khách hàng thanh toán phí bảo hiểm y tế', 300000);
 
@@ -360,9 +327,9 @@ UPDATE ProcedureTemplate
 SET data = N'{
   "formTitle": "Đăng ký tạm trú",
   "fields": [
-    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Nguyễn Văn A" },
-    { "label": "Ngày sinh", "name": "dob", "type": "date", "required": true, "content": "2000-01-01" },
-    { "label": "Địa chỉ tạm trú", "name": "temporaryAddress", "type": "text", "required": true, "content": "123 Đường ABC, Quận 1, TP.HCM" }
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true},
+    { "label": "Ngày sinh", "name": "dob", "type": "date", "required": true},
+    { "label": "Địa chỉ tạm trú", "name": "temporaryAddress", "type": "text", "required": true}
   ]
 }'
 WHERE templateId = 1;
@@ -378,14 +345,47 @@ SET data = N'{
 }'
 WHERE templateId = 2;
 
--- Xóa dữ liệu cũ trước khi thêm dữ liệu mới
-DELETE FROM ProcedureSubmission;
 
 -- Thêm 5 submission với templateId chính xác
 INSERT INTO ProcedureSubmission (submissionId, customerId, templateId, title, description, submissionDate, status, adminProcedureId) VALUES
-(1, 2, 1, N'Đăng ký tạm trú tại Hà Nội', N'Nộp đơn đăng ký tạm trú', '2025-03-10 08:00:00', 'Pending', 1),
-(2, 2, 2, N'Đăng ký hộ khẩu tại TP.HCM', N'Nộp đơn đăng ký hộ khẩu', '2025-03-11 09:00:00', 'Pending', 1),
-(3, 2, 1, N'Đăng ký tạm trú Đà Nẵng', N'Nộp đơn đăng ký tạm trú', '2025-03-12 10:00:00', 'Pending', 1),
-(4, 2, 2, N'Đăng ký hộ khẩu Hải Phòng', N'Nộp đơn đăng ký hộ khẩu', '2025-03-13 11:00:00', 'Pending', 1),
-(5, 2, 1, N'Đăng ký tạm trú Cần Thơ', N'Nộp đơn đăng ký tạm trú', '2025-03-14 12:00:00', 'Pending', 1);
+(1, 2, 1, N'Đăng ký tạm trú tại Hà Nội', N'{
+  "formTitle": "Đăng ký tạm trú",
+  "fields": [
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Nguyễn Văn A" },
+    { "label": "Ngày sinh", "name": "dob", "type": "date", "required": true, "content": "2000-01-01" },
+    { "label": "Địa chỉ tạm trú", "name": "temporaryAddress", "type": "text", "required": true, "content": "123 Đường ABC, Quận 1, TP.HCM" }
+  ]
+}', '2025-03-10 08:00:00', 'Pending', 1),
+(2, 2, 2, N'Đăng ký hộ khẩu tại TP.HCM', N'{
+  "formTitle": "Đăng ký hộ khẩu",
+  "fields": [
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Trần Thị B" },
+    { "label": "Địa chỉ thường trú", "name": "permanentAddress", "type": "text", "required": true, "content": "456 Đường XYZ, Quận 3, TP.HCM" },
+    { "label": "Số nhân khẩu", "name": "householdMembers", "type": "number", "required": true, "content": "4" }
+  ]
+}', '2025-03-11 09:00:00', 'Pending', 1),
+(3, 2, 1, N'Đăng ký tạm trú Đà Nẵng', N'{
+  "formTitle": "Đăng ký tạm trú",
+  "fields": [
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Nguyễn Văn B" },
+    { "label": "Ngày sinh", "name": "dob", "type": "date", "required": true, "content": "2000-01-01" },
+    { "label": "Địa chỉ tạm trú", "name": "temporaryAddress", "type": "text", "required": true, "content": "1234 Đường ABC, Quận 1, TP.HCM" }
+  ]
+}', '2025-03-12 10:00:00', 'Pending', 1),
+(4, 2, 2, N'Đăng ký hộ khẩu Hải Phòng', N'{
+  "formTitle": "Đăng ký hộ khẩu",
+  "fields": [
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Trần Thị B" },
+    { "label": "Địa chỉ thường trú", "name": "permanentAddress", "type": "text", "required": true, "content": "4567 Đường XYZA, Quận 3, TP.HCM" },
+    { "label": "Số nhân khẩu", "name": "householdMembers", "type": "number", "required": true, "content": "4" }
+  ]
+}', '2025-03-13 11:00:00', 'Pending', 1),
+(5, 2, 1, N'Đăng ký tạm trú Cần Thơ', N'{
+  "formTitle": "Đăng ký tạm trú",
+  "fields": [
+    { "label": "Họ và tên", "name": "fullName", "type": "text", "required": true, "content": "Nguyễn Văn C" },
+    { "label": "Ngày sinh", "name": "dob", "type": "date", "required": true, "content": "2000-01-01" },
+    { "label": "Địa chỉ tạm trú", "name": "temporaryAddress", "type": "text", "required": true, "content": "123 Đường ABC, Quận 1, TP.HCM" }
+  ]
+}', '2025-03-14 12:00:00', 'Pending', 1);
 

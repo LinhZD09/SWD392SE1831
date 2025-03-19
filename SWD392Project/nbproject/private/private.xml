@@ -6,7 +6,9 @@
             <file>file:/D:/SWD392SE1831/SWD392Project/src/java/service/ProcedureSubmissionService.java</file>
             <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/RejectSubmissionServlet.java</file>
             <file>file:/D:/SWD392SE1831/SWD392Project/web/procedureSubmission.jsp</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/model/ProcedureSubmission.java</file>
             <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/ApproveSubmissionServlet.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/GetSubmissionServlet.java</file>
         </group>
     </open-files>
 </project-private>
