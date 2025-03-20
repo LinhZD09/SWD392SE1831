@@ -26,12 +26,11 @@ public class Procedures {
     private String paymentRequired;
     private String submissionMethod;
     private String approvalAuthority;
-    private Category category;
 
     public Procedures() {
     }
 
-    public Procedures(int procedureId, String title, String description, int categoryId, Date createdDate, Date updateDate, String status, int processingTime, double fee, String paymentRequired, String submissionMethod, String approvalAuthority, Category category) {
+    public Procedures(int procedureId, String title, String description, int categoryId, Date createdDate, Date updateDate, String status, int processingTime, double fee, String paymentRequired, String submissionMethod, String approvalAuthority) {
         this.procedureId = procedureId;
         this.title = title;
         this.description = description;
@@ -44,8 +43,23 @@ public class Procedures {
         this.paymentRequired = paymentRequired;
         this.submissionMethod = submissionMethod;
         this.approvalAuthority = approvalAuthority;
-        this.category = category;
     }
+
+    public Procedures(int procedureId, String title, String description, int categoryId, Date updateDate, String status, int processingTime, double fee, String paymentRequired, String submissionMethod, String approvalAuthority) {
+        this.procedureId = procedureId;
+        this.title = title;
+        this.description = description;
+        this.categoryId = categoryId;
+        this.updateDate = updateDate;
+        this.status = status;
+        this.processingTime = processingTime;
+        this.fee = fee;
+        this.paymentRequired = paymentRequired;
+        this.submissionMethod = submissionMethod;
+        this.approvalAuthority = approvalAuthority;
+    }
+    
+    
 
     public int getProcedureId() {
         return procedureId;
@@ -141,14 +155,6 @@ public class Procedures {
 
     public void setApprovalAuthority(String approvalAuthority) {
         this.approvalAuthority = approvalAuthority;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 
 }

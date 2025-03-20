@@ -8,6 +8,14 @@
         <servlet-name>HistoryProceduresServlet</servlet-name>
         <servlet-class>controller.HistoryProceduresServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcedureControllerServlet</servlet-name>
+        <servlet-class>controller.ProcedureControllerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateProcedureServlet</servlet-name>
+        <servlet-class>controller.UpdateProcedureServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ManageProceduresServlet</servlet-name>
         <url-pattern>/manageProcedures</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>HistoryProceduresServlet</servlet-name>
         <url-pattern>/historyProcedures</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcedureControllerServlet</servlet-name>
+        <url-pattern>/procedureController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateProcedureServlet</servlet-name>
+        <url-pattern>/updateProcedure</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>homepage.jsp</welcome-file>

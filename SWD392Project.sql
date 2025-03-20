@@ -3,7 +3,7 @@ USE SWD392Project;
 
 CREATE TABLE Category (
     categoryId INT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    name NVARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Procedures (

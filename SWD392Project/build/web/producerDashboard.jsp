@@ -84,6 +84,7 @@
         <a href="producerDashboard.jsp">Trang Chủ</a>
         <a href="get-earliest-submission">Xử lý thủ tục</a>
         <a href="manageTemplates">Quản Lý Mẫu</a>
+        <a href="procedureController">Danh sách Procedure</a>
                 <% if (session.getAttribute("fullName") == null) { %>
             <a href="login.jsp">Đăng Nhập</a>
         <% } else { %>

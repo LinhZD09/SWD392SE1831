@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/service/ProcedureSubmissionService.java</file>
-            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/RejectSubmissionServlet.java</file>
             <file>file:/D:/SWD392SE1831/SWD392Project/web/procedureSubmission.jsp</file>
-            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/model/ProcedureSubmission.java</file>
-            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/ApproveSubmissionServlet.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/ProcedureControllerServlet.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/service/GetProcedureService.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/UpdateProcedureServlet.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/src/java/model/Procedures.java</file>
             <file>file:/D:/SWD392SE1831/SWD392Project/src/java/controller/GetSubmissionServlet.java</file>
+            <file>file:/D:/SWD392SE1831/SWD392Project/web/procedures.jsp</file>
         </group>
     </open-files>
 </project-private>
