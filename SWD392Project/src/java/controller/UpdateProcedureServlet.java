@@ -75,7 +75,7 @@ public class UpdateProcedureServlet extends HttpServlet {
      */
     private final GetProcedureService procedureService = new GetProcedureService();
 
-    @Override
+     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("application/json");
@@ -83,82 +83,37 @@ public class UpdateProcedureServlet extends HttpServlet {
         JsonObject jsonResponse = new JsonObject();
 
         try {
-            // Lấy dữ liệu từ request và kiểm tra trước khi parse
-            String procedureIdStr = request.getParameter("procedureId");
-            String categoryIdStr = request.getParameter("categoryId");
-            String processingTimeStr = request.getParameter("processingTime");
-            String feeStr = request.getParameter("fee");
-
-            // Kiểm tra các tham số số
-            if (procedureIdStr == null || procedureIdStr.trim().isEmpty()) {
-                jsonResponse.addProperty("status", "error");
-                jsonResponse.addProperty("message", "⚠️ ID thủ tục không được để trống!");
-                out.print(jsonResponse.toString());
-                out.flush();
-                return;
-            }
-            if (categoryIdStr == null || categoryIdStr.trim().isEmpty()) {
-                jsonResponse.addProperty("status", "error");
-                jsonResponse.addProperty("message", "⚠️ ID danh mục không được để trống!");
-                out.print(jsonResponse.toString());
-                out.flush();
-                return;
-            }
-            if (processingTimeStr == null || processingTimeStr.trim().isEmpty()) {
-                jsonResponse.addProperty("status", "error");
-                jsonResponse.addProperty("message", "⚠️ Thời gian xử lý không được để trống!");
-                out.print(jsonResponse.toString());
-                out.flush();
-                return;
-            }
-            if (feeStr == null || feeStr.trim().isEmpty()) {
-                jsonResponse.addProperty("status", "error");
-                jsonResponse.addProperty("message", "⚠️ Lệ phí không được để trống!");
-                out.print(jsonResponse.toString());
-                out.flush();
-                return;
-            }
-
-            // Parse dữ liệu
-            int procedureId = Integer.parseInt(procedureIdStr);
-            int categoryId = Integer.parseInt(categoryIdStr);
-            int processingTime = Integer.parseInt(processingTimeStr);
-            double fee = Double.parseDouble(feeStr);
-
-            String title = request.getParameter("title").trim();
-            String description = request.getParameter("description").trim();
+            int procedureId = Integer.parseInt(request.getParameter("procedureId"));
+            int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+            int processingTime = Integer.parseInt(request.getParameter("processingTime"));
+            double fee = Double.parseDouble(request.getParameter("fee"));
+            
+            String title = request.getParameter("title");
+            String description = request.getParameter("description");
             String status = request.getParameter("status");
             String paymentRequired = request.getParameter("paymentRequired");
             String submissionMethod = request.getParameter("submissionMethod");
             String approvalAuthority = request.getParameter("approvalAuthority");
-
-            // Tạo đối tượng Procedures
+            
             Procedures procedure = new Procedures(procedureId, title, description, categoryId, null, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority);
-
-            // Validate dữ liệu
-            String validationError = procedureService.validateProcedure(procedure);
-            if (validationError != null) {
-                jsonResponse.addProperty("status", "error");
-                jsonResponse.addProperty("message", validationError);
+            
+            boolean updated = procedureService.updateProcedure(procedure);
+            if (updated) {
+                jsonResponse.addProperty("status", "success");
             } else {
-                boolean updated = procedureService.updateProcedure(procedure);
-                if (updated) {
-                    jsonResponse.addProperty("status", "success");
-                } else {
-                    jsonResponse.addProperty("status", "error");
-                    jsonResponse.addProperty("message", "Cập nhật không thành công!");
-                }
+                jsonResponse.addProperty("status", "error");
+                jsonResponse.addProperty("message", "Cập nhật không thành công!");
             }
-        
         } catch (SQLException | ClassNotFoundException e) {
             jsonResponse.addProperty("status", "error");
-            jsonResponse.addProperty("message", "⚠️ Lỗi hệ thống! Vui lòng thử lại sau.");
+            jsonResponse.addProperty("message", "Lỗi hệ thống! Vui lòng thử lại sau.");
             e.printStackTrace();
         }
 
         out.print(jsonResponse.toString());
         out.flush();
-    }       
+    }
+          
     @Override
     public String getServletInfo() {
         return "Short description";
