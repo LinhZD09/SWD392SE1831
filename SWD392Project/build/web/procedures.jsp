@@ -35,7 +35,7 @@
                     <th>Danh mục</th>
                     <th>Trạng thái</th>
                     <th>Yêu cầu thanh toán</th>
-                    <th>Hình thức nộp</th>
+                    <th>Hình thức nộp</th> 
                     <th>Phí</th>
                     <th>Thời gian xử lý</th>
                     <th>Ngày tạo</th>

@@ -235,26 +235,36 @@ INSERT INTO Category (categoryId, name) VALUES
 (9, N'Văn hóa - Thể thao'),
 (10, N'Công nghệ thông tin');
 
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(1, N'Đăng ký giấy khai sinh', N'Thủ tục đăng ký giấy khai sinh cho trẻ em', 1, 'Pending', 7, 0.00, N'Không', N'Trực tiếp', N'UBND Xã/Phường');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(2, N'Gia hạn thẻ BHYT', N'Gia hạn bảo hiểm y tế cho người dân', 4, 'Pending', 5, 300000.00, N'Có', 'Online', N'Bảo hiểm xã hội');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(3, N'Cấp giấy phép lái xe', N'Thủ tục cấp giấy phép lái xe hạng B1', 5, 'Pending', 10, 135000.00, N'Có', N'Trực tiếp', N'Sở Giao thông vận tải');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(4, N'Cấp hộ chiếu', N'Thủ tục cấp hộ chiếu cho công dân Việt Nam', 1, 'Pending', 10, 200000.00, N'Có', N'Trực tiếp', N'Cục Xuất Nhập Cảnh');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(5, N'Đăng ký kinh doanh', N'Đăng ký kinh doanh cho doanh nghiệp vừa và nhỏ', 6, 'Pending', 15, 500000.00, N'Có', 'Online', N'Sở Kế hoạch Đầu tư');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(6, N'Cấp giấy chứng nhận quyền sử dụng đất', N'Thủ tục cấp sổ đỏ', 6, 'Pending', 20, 800000.00, N'Có', N'Trực tiếp', N'Sở Tài nguyên Môi trường');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(7, N'Cấp giấy phép xây dựng', N'Thủ tục xin cấp phép xây dựng nhà ở', 6, 'Pending', 10, 300000.00, N'Có', 'Online', N'Sở Xây dựng');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(8, N'Xin giấy phép môi trường', N'Thủ tục xin cấp phép xử lý môi trường', 7, 'Pending', 15, 100000.00, N'Có', 'Online', N'Sở Môi trường');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(9, N'Đăng ký bảo hộ thương hiệu', N'Thủ tục bảo hộ nhãn hiệu, thương hiệu', 10, 'Pending', 30, 1000000.00, N'Có', N'Trực tiếp', N'Cục Sở hữu trí tuệ');
-INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority) VALUES
-(10, N'Xin visa du lịch', N'Thủ tục xin cấp visa đi du lịch nước ngoài', 1, 'Pending', 7, 500000.00, N'Có', 'Online', N'Đại sứ quán');
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(1, N'Đăng ký giấy khai sinh', N'Thủ tục đăng ký giấy khai sinh cho trẻ em', 1, 'Pending', 7, 0.00, N'Không', N'Trực tiếp', N'UBND Xã/Phường', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(2, N'Gia hạn thẻ BHYT', N'Gia hạn bảo hiểm y tế cho người dân', 4, 'Pending', 5, 300000.00, N'Có', 'Online', N'Bảo hiểm xã hội', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(3, N'Cấp giấy phép lái xe', N'Thủ tục cấp giấy phép lái xe hạng B1', 5, 'Pending', 10, 135000.00, N'Có', N'Trực tiếp', N'Sở Giao thông vận tải', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(4, N'Cấp hộ chiếu', N'Thủ tục cấp hộ chiếu cho công dân Việt Nam', 1, 'Pending', 10, 200000.00, N'Có', N'Trực tiếp', N'Cục Xuất Nhập Cảnh', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(5, N'Đăng ký kinh doanh', N'Đăng ký kinh doanh cho doanh nghiệp vừa và nhỏ', 6, 'Pending', 15, 500000.00, N'Có', 'Online', N'Sở Kế hoạch Đầu tư', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(6, N'Cấp giấy chứng nhận quyền sử dụng đất', N'Thủ tục cấp sổ đỏ', 6, 'Pending', 20, 800000.00, N'Có', N'Trực tiếp', N'Sở Tài nguyên Môi trường', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(7, N'Cấp giấy phép xây dựng', N'Thủ tục xin cấp phép xây dựng nhà ở', 6, 'Pending', 10, 300000.00, N'Có', 'Online', N'Sở Xây dựng', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(8, N'Xin giấy phép môi trường', N'Thủ tục xin cấp phép xử lý môi trường', 7, 'Pending', 15, 100000.00, N'Có', 'Online', N'Sở Môi trường', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(9, N'Đăng ký bảo hộ thương hiệu', N'Thủ tục bảo hộ nhãn hiệu, thương hiệu', 10, 'Pending', 30, 1000000.00, N'Có', N'Trực tiếp', N'Cục Sở hữu trí tuệ', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
+INSERT INTO Procedures (procedureId, title, description, categoryId, status, processingTime, fee, paymentRequired, submissionMethod, approvalAuthority, createdDate, updateDate) VALUES
+(10, N'Xin visa du lịch', N'Thủ tục xin cấp visa đi du lịch nước ngoài', 1, 'Pending', 7, 500000.00, N'Có', 'Online', N'Đại sứ quán', '2025-03-20 00:00:00', '2025-03-20 00:00:00');
+
 
 
 
